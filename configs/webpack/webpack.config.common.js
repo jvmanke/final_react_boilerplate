@@ -19,7 +19,7 @@ module.exports = (rootDir, title, name, description) => ({
         test: /\.jsx?$/,
         use: {
           loader: "babel-loader",
-          options: require("../babel.config.js"),
+          options: require("../babel.config.js")(rootDir),
         },
         exclude: /node-modules/,
       },
