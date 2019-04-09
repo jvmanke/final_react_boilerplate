@@ -32,7 +32,7 @@ module.exports = (rootDir, title, name, description) => ({
           },
           {
             loader: "css-loader",
-            options: { importLoaders: 1 },
+            options: { importLoaders: 1, modules: true },
           },
           {
             loader: "postcss-loader",

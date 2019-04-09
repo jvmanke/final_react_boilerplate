@@ -28,8 +28,6 @@ module.exports = (rootDir) => ({
             currentFile,
             opts
           )
-          console.log(newSourcePath)
-          console.log(newCurrentFile)
           return standardResolvePath(newSourcePath, newCurrentFile, newOpts)
         },
       },
