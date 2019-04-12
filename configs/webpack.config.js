@@ -1,20 +1,20 @@
-/* eslint-disable global-require */
+/* eslint-disable global-require, import/no-extraneous-dependencies */
 const path = require("path")
 
-const package = require("../package.json")
+const packageJSON = require("../package.json")
 
 module.exports = function selectConfig(env) {
   const rootDir = path.join(__dirname, "..")
 
-  const title = package.title || "myReactApp"
-  const name = package.name || "my-react-app"
-  const description = package.description || "no description"
+  const title = packageJSON.title || "myReactApp"
+  const name = packageJSON.name || "my-react-app"
+  const description = packageJSON.description || "no description"
 
   let production = false
   let port = 5000
 
   if (env) {
-    production = env.production || production
+    production = env.prod || production
     port = env.port || port
   }
 

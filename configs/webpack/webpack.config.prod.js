@@ -1,3 +1,4 @@
+/* eslint-disable global-require, import/no-extraneous-dependencies */
 const merge = require("webpack-merge")
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const CleanPlugin = require("clean-webpack-plugin")
@@ -11,9 +12,9 @@ module.exports = (rootDir, title, name, description) =>
     optimization: {
       minimizer: [
         new UglifyJsPlugin({
-          sourceMap: true,
-        }),
-      ],
+          sourceMap: true
+        })
+      ]
     },
-    plugins: [new CleanPlugin()],
+    plugins: [new CleanPlugin()]
   })

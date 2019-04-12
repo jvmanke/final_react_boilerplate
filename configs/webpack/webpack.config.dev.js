@@ -1,3 +1,4 @@
+/* eslint-disable global-require, import/no-extraneous-dependencies */
 const path = require("path")
 
 const merge = require("webpack-merge")
@@ -13,6 +14,6 @@ module.exports = (rootDir, title, name, description, port) =>
     devServer: {
       contentBase: path.join(rootDir, "dist"),
       compress: true,
-      port,
-    },
+      port
+    }
   })

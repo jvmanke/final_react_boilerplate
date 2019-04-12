@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "configFile": "./configs/babel.config.js"
+  },
+  "extends": [
+    "eslint-config-airbnb",
+    "plugin:eslint-plugin-jest/recommended",
+    "plugin:eslint-plugin-jest/style",
+    "eslint-config-prettier",
+    "eslint-config-prettier/react"
+  ],
+  "plugins": ["eslint-plugin-simple-import-sort", "eslint-plugin-jest"],
+  "rules": {
+    "sort-imports": "off",
+    "import/order": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off"
+  },
+  "overrides": [
+    {
+      "files": "./src/server/**/*.js",
+      "rules": {
+        "simple-import-sort/sort": "off",
+        "import/order": ["error", { "newlines-between": "always" }]
+      }
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+/* eslint-disable global-require, import/no-extraneous-dependencies */
 const path = require("path")
 
 const HtmlPlugin = require("html-webpack-plugin")
@@ -8,10 +9,10 @@ module.exports = (rootDir, title, name, description) => ({
   entry: "./src/app.js",
   output: {
     path: path.join(rootDir, "dist"),
-    filename: "[name].js",
+    filename: "[name].js"
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx"]
   },
   module: {
     rules: [
@@ -19,48 +20,48 @@ module.exports = (rootDir, title, name, description) => ({
         test: /\.jsx?$/,
         use: {
           loader: "babel-loader",
-          options: require("../babel.config.js")(rootDir),
+          options: require("../babel.config.js")(rootDir)
         },
-        exclude: /node-modules/,
+        exclude: /node-modules/
       },
       {
         test: /.css$/,
         use: [
           {
             loader: "style-loader",
-            options: {},
+            options: {}
           },
           {
             loader: "css-loader",
-            options: { importLoaders: 1, modules: true },
+            options: { importLoaders: 1, modules: true }
           },
           {
             loader: "postcss-loader",
-            options: { config: { path: path.join(__dirname, "..") } },
-          },
-        ],
+            options: { config: { path: path.join(__dirname, "..") } }
+          }
+        ]
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        use: "file-loader",
-      },
-    ],
+        use: "file-loader"
+      }
+    ]
   },
   plugins: [
     new HtmlPlugin({
       filename: "index.html",
       template: path.join(rootDir, "src/index.ejs"),
-      title,
+      title
     }),
     new PwaManifest({
       name,
       description,
-      background_color: "#ffffff",
+      background_color: "#ffffff"
     }),
     new WorkboxPlugin.GenerateSW({
       swDest: "sw.js",
       clientsClaim: true,
-      skipWaiting: true,
-    }),
-  ],
+      skipWaiting: true
+    })
+  ]
 })
