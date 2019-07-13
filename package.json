@@ -3,9 +3,9 @@
   "name": "folderstructure",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --config=./configs/webpack.config.js",
+    "start": "webpack-dev-server --config=./configs/webpack.config.js --hot",
     "build": "webpack --env.prod --config=./configs/webpack.config.js"
   },
   "author": "",
@@ -46,5 +46,10 @@
     "webpack-merge": "^4.2.1",
     "webpack-pwa-manifest": "^4.0.0",
     "workbox-webpack-plugin": "^4.2.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }

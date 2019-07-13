@@ -1,14 +1,15 @@
 /* eslint-disable global-require, import/no-extraneous-dependencies */
-const path = require("path")
+const path = require('path')
 
-const packageJSON = require("../package.json")
+const packageJSON = require('../package.json')
 
 module.exports = function selectConfig(env) {
-  const rootDir = path.join(__dirname, "..")
+  const rootDir = path.join(__dirname, '..')
 
-  const title = packageJSON.title || "myReactApp"
-  const name = packageJSON.name || "my-react-app"
-  const description = packageJSON.description || "no description"
+  const entry = packageJSON.main || './src/index.js'
+  const title = packageJSON.title || 'myReactApp'
+  const name = packageJSON.name || 'my-react-app'
+  const description = packageJSON.description || 'no description'
 
   let production = false
   let port = 5000
@@ -19,14 +20,16 @@ module.exports = function selectConfig(env) {
   }
 
   return production
-    ? require("./webpack/webpack.config.prod")(
+    ? require('./webpack/webpack.config.prod')(
         rootDir,
+        entry,
         title,
         name,
         description
       )
-    : require("./webpack/webpack.config.dev")(
+    : require('./webpack/webpack.config.dev')(
         rootDir,
+        entry,
         title,
         name,
         description,

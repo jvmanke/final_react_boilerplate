@@ -3,6 +3,9 @@
   "parserOptions": {
     "configFile": "./configs/babel.config.js"
   },
+  "env": {
+    "browser": true
+  },
   "extends": [
     "eslint-config-airbnb",
     "plugin:eslint-plugin-jest/recommended",
